@@ -1,10 +1,16 @@
-chrome.browserAction.onClicked.addListener(function(tab) {
-    var current;
-    chrome.tabs.getCurrent(function(tab) {
-        current = tab;
-    });
-    chrome.tabs.create({url: "http://www.google.com", active: false}, function(tab) {});
-    chrome.tabs.create({url: "http://www.yahoo.com", active: false}, function(tab) {});
-    
+var getURLs = function() {
+    chrome.storage.sync.get('urls', function(items) {
+        var array = items['urls'];
+        // Empty URL
+        if (typeof array === "undefined") {
+            return;
+        }
+        for (var i = 0; i < array.length; i++) {
+            chrome.tabs.create({url: "http://" + array[i], active: false}, function(tab) {});
+        }
+    })
+}
 
+chrome.browserAction.onClicked.addListener(function(tab) {
+    getURLs();
 });

@@ -9,8 +9,9 @@
         "persistent": false
     },
 
+    "options_page": "options.html",
     
-    "permissions": ["tabs"],
+    "permissions": ["tabs", "storage"],
 
     "browser_action": {
         "default_title": "Multiple Bookmarks"
