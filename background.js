@@ -1,9 +1,4 @@
 // str.startsWith()
-if (typeof String.prototype.startsWith != 'function') {
-    String.prototype.startsWith = function (str) {
-        return this.indexOf(str) == 0;
-    };
-}
 
 var getURLs = function() {
     chrome.storage.sync.get('urls', function(items) {
@@ -15,8 +10,8 @@ var getURLs = function() {
         }
         for (i = 0; i < array.length; i++) {
             var newURL = array[i];
-            if (newURL.startsWith('http') === false) {
-                
+            // check for https://
+            if (newURL.lastIndexOf('http', 0) !== 0) {
                 newURL = "http://" + array[i]; 
             }
             chrome.tabs.create({url: newURL, active: false}, function(tab) {});
