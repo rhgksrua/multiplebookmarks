@@ -2,15 +2,18 @@
 <html>
     <head>
         <title>MB options</title>
+        <link rel="stylesheet" href="reset.css"></link>
         <link rel="stylesheet" href="options.css"></link>
     </head>
     <body>
-        <div>
-            <p>URLs</p>
+        <div class="container">
+            <h3>URLs</h3>
+            <p>Enter one url per line </p>
+            <p class="info">www.website.com defaults to http://www.website.com</p>
             <textarea id="urls" spellcheck="false" name="textarea" rows="10" cols="50"></textarea>
             <br />
             <button id="save">SAVE</button>
-            <span id="status"></span>
+            <p id="status"></p>
         </div>
         <script type="text/javascript" src="options.js"></script>
     </body>

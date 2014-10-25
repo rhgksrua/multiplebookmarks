@@ -28,7 +28,6 @@ var saveURLs = function(e) {
         stat.textContent = "Saved";
         stat.className = "fade";
     });
-
 };
 
 // Show saved urls in URLs
